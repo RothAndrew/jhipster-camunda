@@ -177,6 +177,8 @@ liquibase {
 configurations {
     providedRuntime
     compile.exclude module: "spring-boot-starter-tomcat"
+    compile.exclude group: "javax.ws.rs", module: "jsr311-api"
+    testCompile.exclude group: "javax.ws.rs", module: "jsr311-api"
 }
 
 repositories {
@@ -250,6 +252,10 @@ dependencies {
     compile ("io.springfox:springfox-swagger2") {
         exclude module: 'mapstruct'
     }
+
+    // Camunda
+    compile "org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:3.2.1"
+
     compile "io.springfox:springfox-bean-validators"
     compile "mysql:mysql-connector-java"
     liquibaseRuntime "mysql:mysql-connector-java"
